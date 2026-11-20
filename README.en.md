@@ -19,12 +19,6 @@ intervals.
   <br><em>Patrol waypoints generated automatically from the map (29 waypoints, 95.02 % planned coverage).</em>
 </p>
 
-<!-- DEMO: replace media/demo.gif with a real simulation recording. -->
-<p align="center">
-  <img src="media/demo.gif" alt="Demo (placeholder)" width="720">
-  <br><em>Demo GIF — <strong>placeholder</strong>, replace <code>media/demo.gif</code> with a real recording.</em>
-</p>
-
 > **Status:** All results come from simulation. No physical robot has been built yet; the hardware
 > interface (`fsb_hardware`) is planned and not part of this repository. See
 > [docs/HARDWARE.md](docs/HARDWARE.md).
@@ -193,11 +187,6 @@ ros2 launch fsb_bringup bringup.launch.py headless:=true    # server only
 Start order: `robot_state_publisher` → Gazebo + bridge + spawn → `joint_state_broadcaster` →
 `diff_drive_controller` → EKF.
 
-<p align="center">
-  <img src="media/screenshot_gazebo.png" alt="Gazebo screenshot (placeholder)" width="640">
-  <br><em>Gazebo factory world — <strong>placeholder</strong>, replace <code>media/screenshot_gazebo.png</code>.</em>
-</p>
-
 ### 2. Build a map with SLAM and save it
 ```bash
 # Terminal 1: mapping (map→odom: SLAM Toolbox)
@@ -223,11 +212,6 @@ ros2 launch fsb_bringup bringup.launch.py localization:=amcl rviz:=true \
 ```
 Without `map`, the bundled map (`fsb_navigation/maps/factory.yaml`) is used. In RViz, use the
 *2D Pose Estimate* and *Nav2 Goal* tools to give goals.
-
-<p align="center">
-  <img src="media/screenshot_rviz.png" alt="RViz screenshot (placeholder)" width="640">
-  <br><em>RViz <code>nav.rviz</code> view — <strong>placeholder</strong>, replace <code>media/screenshot_rviz.png</code>.</em>
-</p>
 
 ### 4. Plan and start a patrol
 Waypoints are generated from the map; no world coordinates are hard-coded:
@@ -331,7 +315,7 @@ factory_security_bot_ws/
 │   ├── fsb_patrol/        # patrol_planner, patrol_executor, incident handling, coverage_monitor
 │   └── fsb_perception/    # yolo_node (YOLOv8-pose), posture rules, image compression
 ├── docs/                  # Architecture, hardware, perception, patrol, testing docs and images
-├── media/                 # README images, demo GIF and screenshots
+├── media/                 # README images
 ├── scripts/               # install_deps.sh, setup_perception_venv.sh, ci.sh
 └── .github/workflows/     # CI (build + test in the ros:jazzy container)
 ```

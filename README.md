@@ -18,12 +18,6 @@ kişinin çevresine geçici bir yasak bölge koyar ve belirli aralıklarla durum
   <br><em>Haritadan otomatik üretilen devriye noktaları (29 waypoint, %95,02 planlı kapsama).</em>
 </p>
 
-<!-- DEMO: Gerçek bir simülasyon kaydıyla media/demo.gif dosyasını değiştirin. -->
-<p align="center">
-  <img src="media/demo.gif" alt="Demo (yer tutucu)" width="720">
-  <br><em>Demo GIF — <strong>yer tutucu</strong>, <code>media/demo.gif</code> dosyasını gerçek kayıtla değiştirin.</em>
-</p>
-
 > **Durum:** Tüm sonuçlar simülasyondan gelir. Gerçek robot henüz üretilmedi; donanım arayüzü
 > (`fsb_hardware`) planlanmıştır, bu depoda yoktur. Ayrıntı: [docs/HARDWARE.md](docs/HARDWARE.md).
 
@@ -191,11 +185,6 @@ ros2 launch fsb_bringup bringup.launch.py headless:=true    # yalnızca sunucu
 Sıra: `robot_state_publisher` → Gazebo + köprü + spawn → `joint_state_broadcaster` →
 `diff_drive_controller` → EKF.
 
-<p align="center">
-  <img src="media/screenshot_gazebo.png" alt="Gazebo ekran görüntüsü (yer tutucu)" width="640">
-  <br><em>Gazebo fabrika dünyası — <strong>yer tutucu</strong>, <code>media/screenshot_gazebo.png</code> dosyasını değiştirin.</em>
-</p>
-
 ### 2. SLAM ile harita çıkar ve kaydet
 ```bash
 # Terminal 1: haritalama (map→odom: SLAM Toolbox)
@@ -222,11 +211,6 @@ ros2 launch fsb_bringup bringup.launch.py localization:=amcl rviz:=true \
 ```
 Depodaki hazır harita (`fsb_navigation/maps/factory.yaml`) `map` verilmezse kullanılır. RViz'de
 *2D Pose Estimate* ve *Nav2 Goal* araçlarıyla hedef verebilirsiniz.
-
-<p align="center">
-  <img src="media/screenshot_rviz.png" alt="RViz ekran görüntüsü (yer tutucu)" width="640">
-  <br><em>RViz <code>nav.rviz</code> görünümü — <strong>yer tutucu</strong>, <code>media/screenshot_rviz.png</code> dosyasını değiştirin.</em>
-</p>
 
 ### 4. Devriye planla ve başlat
 Waypoint'ler haritadan üretilir; dünya koordinatı koda gömülü değildir:
@@ -330,7 +314,7 @@ factory_security_bot_ws/
 │   ├── fsb_patrol/        # patrol_planner, patrol_executor, olay yönetimi, coverage_monitor
 │   └── fsb_perception/    # yolo_node (YOLOv8-pose), duruş kuralları, görüntü sıkıştırma
 ├── docs/                  # Mimari, donanım, algılama, devriye, test belgeleri ve görseller
-├── media/                 # README görselleri, demo GIF ve ekran görüntüleri
+├── media/                 # README görselleri
 ├── scripts/               # install_deps.sh, setup_perception_venv.sh, ci.sh
 └── .github/workflows/     # CI (ros:jazzy container'ında build + test)
 ```
